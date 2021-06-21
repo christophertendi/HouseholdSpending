@@ -14,7 +14,7 @@
         </constraints>
         <properties>
           <font name="Arial" size="25" style="1"/>
-          <text value="Average Monthly Household Spending"/>
+          <text value="Household Spending"/>
         </properties>
       </component>
       <hspacer id="2301a">

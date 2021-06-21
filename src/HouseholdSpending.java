@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-//methods used
+//class and attributes used
 public class HouseholdSpending {
     private JTextField tfweek1;
     private JTextField tfweek3;
@@ -18,11 +18,10 @@ public class HouseholdSpending {
     private JTextField tfweek2;
     private JPanel main;
     private JButton saveButton;
-    private JButton updateButton;
-    private JButton deleteButton;
     private JComboBox<String> comboBox1;
     private JButton loadButton;
 
+    //
     public static void main(String[] args) {
         SpendingDatabase.init();
         JFrame frame = new JFrame("HouseholdSpending");
@@ -32,7 +31,7 @@ public class HouseholdSpending {
         frame.setVisible(true);
 
     }
-    //main function of program
+    //
     public HouseholdSpending() {
         comboBox1.addItem("January");
         comboBox1.addItem("February");
@@ -52,8 +51,7 @@ public class HouseholdSpending {
             public void actionPerformed(ActionEvent e)
             {
                 //variables used in the program
-                double week1,week2,week3,week4,total;
-                double average;
+                double week1,week2,week3,week4,average,total;
 
                 //getting the user input and incorporating it into the formula
                 week1 = Double.parseDouble(tfweek1.getText());
@@ -93,7 +91,7 @@ public class HouseholdSpending {
                 {
                     String month = (String) comboBox1.getSelectedItem();
                     Connection conn = SpendingDatabase.getDatabase();
-                    String spend = "SELECT * FROM spending_table WHERE month=?";
+                    String spend = "SELECT * FROM spending_table WHERE month=?"; //sql code used to extract data from spending.db
                     PreparedStatement ps = conn.prepareStatement(spend);
                     ps.setString(1, month);
                     ResultSet rs = ps.executeQuery();
